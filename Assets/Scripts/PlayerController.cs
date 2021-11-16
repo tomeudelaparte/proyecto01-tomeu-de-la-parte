@@ -24,5 +24,19 @@ public class PlayerController : MonoBehaviour
         transform.Translate(Vector3.right * turnSpeed * Time.deltaTime * horizontalInput);
         // Rotación horizontal (A, D)
         transform.Rotate(Vector3.up, rotateSpeed * Time.deltaTime * horizontalInput);
+
+        if(Input.GetKey(KeyCode.Q))
+        {
+            transform.GetChild(0).gameObject.transform.rotation *= Quaternion.Euler(0f, -0.1f, 0f);
+        }
+
+        if (Input.GetKey(KeyCode.E))
+        {
+            transform.GetChild(0).gameObject.transform.rotation *= Quaternion.Euler(0f,0.1f,0f);
+        }
+
+        transform.GetChild(1).gameObject.transform.Rotate(Vector3.up, rotateSpeed * Time.deltaTime * horizontalInput);
+        transform.GetChild(2).gameObject.transform.Rotate(Vector3.up, rotateSpeed * Time.deltaTime * horizontalInput);
+
     }
 }
